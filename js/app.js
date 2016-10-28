@@ -72,7 +72,9 @@ Player.prototype.handleInput = function(e) {
 
 Player.prototype.update = function() {
     for (i=0;i<allEnemies.length;i++) {
-        if (this.x==(allEnemies[i].x+75)&&this.y==allEnemies[i].y) {
+        //if ((this.x==(allEnemies[i].x+75)&&this.y==allEnemies[i].y)
+        //    ||(this.x==(allEnemies[i].x-75)&&this.y==allEnemies[i].y)) {
+        if ((this.x<allEnemies[i].x+75&&this.x>allEnemies[i].x-75)&&this.y==allEnemies[i].y) { 
             this.lives--;
             this.reset();
         }
@@ -105,14 +107,12 @@ Player.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var Enemy1 = new Enemy(0, 83, 3);
+var Enemy1 = new Enemy(0, 83, 1.25);
 var Enemy2 = new Enemy(150, 166, 1.5);
-var Enemy3 = new Enemy(100, 83,2.5);
-var Enemy4 = new Enemy(-150, 249, 3);
-var Enemy5 = new Enemy(250, 249, 2);
-var Enemy6 = new Enemy(10, 166, 2.15);
+var Enemy5 = new Enemy(250, 249, 1.75);
 
-var allEnemies = [Enemy1, Enemy2, Enemy3, Enemy4, Enemy5, Enemy6];                 //ADD 2 (45-46 LINES)
+
+var allEnemies = [Enemy1, Enemy2, Enemy5];                 //ADD 2 (45-46 LINES)
 var player = new Player(200, 415);
 
 

@@ -136,8 +136,9 @@ var Engine = (function(global) {
             }
         }
         // Add obstacle to the canvas
-        var obstacle = ['images/Rock.png'];
+        var obstacle = ['images/Rock.png', 'images/Star.png'];
         ctx.drawImage(Resources.get(obstacle[0]), 100, 310);
+        ctx.drawImage(Resources.get(obstacle[1]), 300, 249);
         renderEntities();
     }
 
@@ -174,7 +175,8 @@ var Engine = (function(global) {
         'images/grass-block.png',
         'images/enemy-bug.png',
         'images/char-boy.png',
-        'images/Rock.png' // Load a new image
+        'images/Rock.png', // Load a new image
+        'images/Star.png'
     ]);
     Resources.onReady(init);
 
