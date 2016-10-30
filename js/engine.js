@@ -94,6 +94,7 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
+        gems.update(dt)
         player.update();
     }
 
@@ -136,9 +137,8 @@ var Engine = (function(global) {
             }
         }
         // Add obstacle to the canvas
-        var obstacle = ['images/Rock.png', 'images/Star.png'];
+        var obstacle = ['images/Rock.png'];
         ctx.drawImage(Resources.get(obstacle[0]), 100, 310);
-        ctx.drawImage(Resources.get(obstacle[1]), 300, 249);
         renderEntities();
     }
 
@@ -153,8 +153,10 @@ var Engine = (function(global) {
         allEnemies.forEach(function(enemy) {
             enemy.render();
         });
-
+        collect.render();
         player.render();
+        heart.render();
+        gems.render();
     }
 
     /* This function does nothing but it could have been a good place to
@@ -176,7 +178,9 @@ var Engine = (function(global) {
         'images/enemy-bug.png',
         'images/char-boy.png',
         'images/Rock.png', // Load a new image
-        'images/Star.png'
+        'images/Star.png',
+        'images/Heart.png',
+        'images/Gem Blue.png'
     ]);
     Resources.onReady(init);
 
